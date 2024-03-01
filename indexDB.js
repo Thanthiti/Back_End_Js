@@ -21,15 +21,15 @@ function Item() {
         },
         Customer_Id: {
             type: Sequelize.STRING,
-            allowNull: false, // have to
+            allowNull: false,
         },
         Name: {
             type: Sequelize.CHAR(20),
-            allowNull: false, // have to
+            allowNull: false,
         },
         Value: {
             type: Sequelize.INTEGER,
-            allowNull: false, // have to
+            allowNull: false,
         },
     })
 
@@ -43,8 +43,8 @@ function Item() {
         })
     })
 
-    app.get("/Item/:id", (req, res) => {
-        Item.findByPk(req.params.id).then((item) => {
+    app.get("/Item/:Product_Id", (req, res) => {
+        Item.findByPk(req.params.Product_Id).then((item) => {
             if (!item) {
                 res.status(404).send("Item not found")
             } else {
@@ -63,8 +63,8 @@ function Item() {
         })
     })
 
-    app.put("/Item_Update/:id", (req, res) => {
-        Item.findByPk(req.params.id).then((item) => {
+    app.put("/Item_Update/:Product_Id", (req, res) => {
+        Item.findByPk(req.params.Product_Id).then((item) => {
             if (!item) {
                 res.status.send("Item not found")
             } else {
@@ -79,8 +79,8 @@ function Item() {
         })
     })
 
-    app.delete("/Item_Delete/:id", (req, res) => {
-        Item.findByPk(req.params.id).then((item) => {
+    app.delete("/Item_Delete/:Product_Id", (req, res) => {
+        Item.findByPk(req.params.Product_Id).then((item) => {
             if (!item) {
                 res.status.send("Item not found")
             } else {
@@ -140,8 +140,8 @@ function Employee() {
         })
     })
 
-    app.get("/Employee/:id", (req, res) => {
-        Employee.findByPk(req.params.id).then((employees) => {
+    app.get("/Employee/:Employee_Id", (req, res) => {
+        Employee.findByPk(req.params.Employee_Id).then((employees) => {
             if (!employees) {
                 res.status(404).send("employees_id not found")
             } else {
@@ -160,8 +160,8 @@ function Employee() {
         })
     })
 
-    app.put("/Employee_Update/:id", (req, res) => {
-        Employee.findByPk(req.params.id).then((employees) => {
+    app.put("/Employee_Update/:Employee_Id", (req, res) => {
+        Employee.findByPk(req.params.Employee_Id).then((employees) => {
             if (!employees) {
                 res.status.send("employees not found")
             } else {
@@ -176,8 +176,8 @@ function Employee() {
         })
     })
 
-    app.delete("/Employee_Delete/:id", (req, res) => {
-        Employee.findByPk(req.params.id).then((employees) => {
+    app.delete("/Employee_Delete/:Employee_Id", (req, res) => {
+        Employee.findByPk(req.params.Employee_Id).then((employees) => {
             if (!employees) {
                 res.status.send("employee not found")
             } else {
@@ -207,30 +207,34 @@ function Ticket() {
 
 
     const Pawn_ticket = sequelize.define("pawn_ticket", {
-        pawn_ticket_Id: {
+        Pawn_ticket_Id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        customer_Id: {
+        Customer_Id: {
             type: Sequelize.STRING,
-            allowNull: false, // have to
+            allowNull: false,
         },
-        employee_Id: {
+        Product_Id: {
             type: Sequelize.STRING,
-            allowNull: false, // have to        
+            allowNull: false,
         },
-        principle: {
+        Employee_Id: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        Principle: {
             type: Sequelize.INTEGER,
-            allowNull: false, // have to
+            allowNull: false,
         },
         Rate: {
             type: Sequelize.INTEGER,
-            allowNull: false, // have to        
+            allowNull: false,
         },
         Total: {
             type: Sequelize.INTEGER,
-            allowNull: false, // have to        
+            allowNull: false,
         }
 
     })
@@ -245,8 +249,8 @@ function Ticket() {
         })
     })
 
-    app.get('/Ticket/:id', (req, res) => {
-        Pawn_ticket.findByPk(req.params.id).then(pawn_ticket => {
+    app.get('/Ticket/:Pawn_ticket_Id', (req, res) => {
+        Pawn_ticket.findByPk(req.params.Pawn_ticket_Id).then(pawn_ticket => {
             if (!pawn_ticket) {
                 res.status(404).send('Pawn_tickets not found')
             } else {
@@ -265,8 +269,8 @@ function Ticket() {
         })
     })
 
-    app.put('/Ticket_Update/:id', (req, res) => {
-        Pawn_ticket.findByPk(req.params.id).then(pawn_ticket => {
+    app.put('/Ticket_Update/:Pawn_ticket_Id', (req, res) => {
+        Pawn_ticket.findByPk(req.params.Pawn_ticket_Id).then(pawn_ticket => {
             if (!pawn_ticket) {
                 res.status.send('Pawn_tickets not found')
             } else {
@@ -281,8 +285,8 @@ function Ticket() {
         })
     })
 
-    app.delete('/Ticket_Delete/:id', (req, res) => {
-        Pawn_ticket.findByPk(req.params.id).then(pawn_ticket => {
+    app.delete('/Ticket_Delete/:Pawn_ticket_Id', (req, res) => {
+        Pawn_ticket.findByPk(req.params.Pawn_ticket_Id).then(pawn_ticket => {
             if (!pawn_ticket) {
                 res.status.send('Pawn_tickets not found')
             } else {
@@ -315,23 +319,23 @@ function Customer() {
         },
         Name: {
             type: Sequelize.STRING,
-            allowNull: false, // have to
+            allowNull: false,
         },
         Phone: {
             type: Sequelize.STRING,
-            allowNull: false, // have to
+            allowNull: false,
         },
         Email: {
             type: Sequelize.STRING,
-            allowNull: false, // have to
+            allowNull: false,
         },
         Address: {
             type: Sequelize.STRING,
-            allowNull: false, // have to
+            allowNull: false,
         },
         Password: {
             type: Sequelize.STRING,
-            allowNull: false, // have to
+            allowNull: false,
         },
     })
 
@@ -346,8 +350,8 @@ function Customer() {
             })
     })
 
-    app.get("/Customer/:id", (req, res) => {
-        Customer.findByPk(req.params.id).then((CM) => {
+    app.get("/Customer/:Customer_Id", (req, res) => {
+        Customer.findByPk(req.params.Customer_Id).then((CM) => {
             if (!CM) {
                 res.status(404).send("Customer not found")
             } else {
@@ -366,8 +370,8 @@ function Customer() {
         })
     })
 
-    app.put("/Customer_Update/:id", (req, res) => {
-        Customer.findByPk(req.params.id).then((CM) => {
+    app.put("/Customer_Update/:Customer_Id", (req, res) => {
+        Customer.findByPk(req.params.Customer_Id).then((CM) => {
             if (!CM) {
                 res.status.send("Customer not found")
             } else {
@@ -382,8 +386,8 @@ function Customer() {
         })
     })
 
-    app.delete("/Customer_Delete/:id", (req, res) => {
-        Customer.findByPk(req.params.id).then((CM) => {
+    app.delete("/Customer_Delete/:Customer_Id", (req, res) => {
+        Customer.findByPk(req.params.Customer_Id).then((CM) => {
             if (!CM) {
                 res.status.send("Book not found")
             } else {
