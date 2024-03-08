@@ -32,6 +32,10 @@ const Item = sequelize_Item.define("item", {
         type: Sequelize.INTEGER,
         allowNull: false,
     },
+    Status: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+    },
 })
 sequelize_Item.sync()
 const sequelize_Employee = new Sequelize("database", "username", "password", {
